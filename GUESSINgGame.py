@@ -27,25 +27,48 @@ while guesses != 0:
 
 #if it isnt right then it checks each index to see if they match and shows the player what numbrs match
     else:
-
         for i in guesslist:
-            for j in rnumlist:
-                if i == j :
-                    rnumindex = rnumlist.index(j)
-                    guessindex = guesslist.index(i)
-                    if rnumindex == guessindex:
-                        print ("One of Your numbers matches")
-                        guesses += 1
-                        usersuccess.pop(rnumindex)
-                        usersuccess.insert(rnumindex, i)
-                        rnumlist.pop(rnumindex)
-                        rnumlist.insert(rnumindex, "-")
-    guesses -= 1
-    print (guesses, usersuccess)
+            if i in rnumlist:
+                indexnumber = 0
+                for j in rnumlist:
+                    if j == i:
+                        usersuccess.pop(indexnumber)
+                        usersuccess.insert(indexnumber, i)
+                    indexnumber += 1
 
+        guesses -= 1
+        if guesses == 0:
+            print ("out of guesses")
+            userinput2: input ("Do you want to play again?")
+            if userinput2.lower() == ("yes") :
+                guesses = 5
+            else:
+                print ("thanks for playing")
+
+
+        else:
+            print("Sorry. You have " + str(guesses) + "  guesses left.")
+
+
+        print(usersuccess)
+
+    #     for i in guesslist:
+    #         for j in rnumlist:
+    #             if i == j :
+    #                 rnumindex = rnumlist.index(j)
+    #                 guessindex = guesslist.index(i)
+    #                 if rnumindex == guessindex:
+    #
+    #                     guesses += 1
+    #
+    #                     rnumlist.pop(rnumindex)
+    #                     rnumlist.insert(rnumindex, "-")
+    # guesses -= 1
+    # print (guesses, usersuccess)
 
 
     guesslist.clear ()
+
 
 
 
