@@ -1,0 +1,41 @@
+def gotospot(x,y):
+    t.goto(x,y)
+    location(x,y)
+
+def location(x,y) :
+    if x > 100 and x < 300 and y > 100 and y < 250:#top right
+        t.pu()
+        t.goto(150,100)
+        t.write("X", font=("times new roman", 200))
+    elif x > -100 and x < 100 and y > 100 and y < 250:#top mid
+        t.pu()
+        t.goto(-50, 100)
+        t.write("X", font=("times new roman", 200))
+    elif x > -300 and x < -100 and y > 100 and y < 250: #top left
+        t.pu()
+        t.goto(-250, 100)
+        t.write("X", font=("times new roman", 200))
+    elif x > 100 and x < 300 and y > -100 and y < 100: #midright
+        t.pu()
+        t.goto(150, -100)
+        t.write("X", font=("times new roman", 200))
+    elif x > -100 and x < 100 and y > -100 and y < 100: #midmid
+        t.pu()
+        t.goto(-50, -100)
+        t.write("X", font=("times new roman", 200))
+    elif x > -300 and x < -100 and y > -100 and y < 100: #midleft
+        t.pu()
+        t.goto(-250, -100)
+        t.write("X", font=("times new roman", 200))
+    elif x > 100 and x < 300 and y > -250 and y < -100: #bot right
+        t.pu()
+        t.goto(150, -300)
+        t.write("X", font=("times new roman", 200))
+    elif x > -100 and x < 100 and y > -250 and y < -100: #bot mid
+        t.pu()
+        t.goto(-50, -300)
+        t.write("X", font=("times new roman", 200))
+    elif x > -300 and x < -100 and y > -250 and y < -100: #bot left
+        t.pu()
+        t.goto(-250, -300)
+        t.write("X", font=("times new roman", 200))
