@@ -1,0 +1,233 @@
+global turns #makes turns so x and o alternate
+turns = 0
+
+import turtle
+#defining the window
+window = turtle.Screen()
+window.bgcolor("dodger blue")
+window.title("Tic Tac Toe")
+#defining the turtles
+t = turtle.Turtle()
+t.color("indian red")
+t.pensize(9)
+t.shapesize(3)
+t.shape("turtle")
+t.speed(5)
+
+#move the turtle
+def square() :
+    for i in range(4) :
+        t.forward(100)
+        t.right(90)
+    t.write("Thats a square", font=("Ariel", 20))
+
+ #creates ttt board
+def board() :
+    t.pu()
+    t.goto(-300,-100)
+    t.pd()
+    t.forward(600)
+    t.pu()
+    t.goto(-300,100)
+    t.pd()
+    t.forward(600)
+    t.pu()
+    t.goto(-100,250)
+    t.pd()
+    t.right(90)
+    t.fd(500)
+    t.pu()
+    t.goto(100,250)
+    t.pd()
+    t.fd(500)
+    t.pu()
+board()
+
+def drawx():#draws the x
+    t.write("x", font=("times new roman", 200))
+
+def drawo():#draws the o
+    t.write("o", font=("times new roman", 200))
+
+place = []
+
+def locationx(x,y) : #makes board clickable for the x's
+    if x > 100 and x < 300 and y > 100 and y < 250:#top right
+        t.pu()
+        if 1 not in place :
+            t.goto(150,100)
+            drawx()
+            place.append (1)
+
+        else:
+            pass
+    elif x > -100 and x < 100 and y > 100 and y < 250:#top mid
+        t.pu()
+        if 2 not in place :
+            t.goto(-50, 100)
+            drawx()
+            place.append (2)
+
+        else:
+            pass
+    elif x > -300 and x < -100 and y > 100 and y < 250: #top left
+        t.pu()
+        if 3 not in place :
+            t.goto(-250, 100)
+            drawx()
+            place.append (3)
+
+        else:
+            pass
+    elif x > 100 and x < 300 and y > -100 and y < 100: #midright
+        t.pu()
+        if 4 not in place :
+            t.goto(150, -100)
+            drawx()
+            place.append (4)
+
+        else:
+            pass
+    elif x > -100 and x < 100 and y > -100 and y < 100: #midmid
+        t.pu()
+        if 5 not in place :
+            t.goto(-50, -100)
+            drawx()
+            place.append (5)
+
+        else:
+            pass
+    elif x > -300 and x < -100 and y > -100 and y < 100: #midleft
+        t.pu()
+        if 6 not in place:
+            t.goto(-250, -100)
+            drawx()
+            place.append (6)
+
+        else:
+            pass
+    elif x > 100 and x < 300 and y > -250 and y < -100: #bot right
+        t.pu()
+        if 7 not in place:
+            t.goto(150, -300)
+            drawx()
+            place.append (7)
+
+        else:
+            pass
+    elif x > -100 and x < 100 and y > -250 and y < -100: #bot mid
+        t.pu()
+        if 8 not in place:
+            t.goto(-50, -300)
+            drawx()
+            place.append (8)
+
+        else:
+            pass
+    elif x > -300 and x < -100 and y > -250 and y < -100: #bot left
+        t.pu()
+        if 9 not in place :
+            t.goto(-250, -300)
+            drawx()
+            place.append (9)
+
+        else:
+            pass
+
+def locationo(x,y) : #makes board clickable for the o's
+    if x > 100 and x < 300 and y > 100 and y < 250:#top right
+        t.pu()
+        if 1 not in place :
+            t.goto(150,100)
+            drawo()
+            place.append (1)
+
+        else:
+            pass
+    elif x > -100 and x < 100 and y > 100 and y < 250:#top mid
+        t.pu()
+        if 2 not in place:
+            t.goto(-50, 100)
+            drawo()
+            place.append (2)
+
+        else:
+            pass
+    elif x > -300 and x < -100 and y > 100 and y < 250: #top left
+        t.pu()
+        if 3 not in place:
+            t.goto(-250, 100)
+            drawo()
+            place.append (3)
+
+        else:
+            pass
+    elif x > 100 and x < 300 and y > -100 and y < 100: #midright
+        t.pu()
+        if 4 not in place:
+            t.goto(150, -100)
+            drawo()
+            place.append (4)
+
+        else:
+            pass
+    elif x > -100 and x < 100 and y > -100 and y < 100: #midmid
+        t.pu()
+        if 5 not in place:
+            t.goto(-50, -100)
+            drawo()
+            place.append (5)
+
+        else:
+            pass
+    elif x > -300 and x < -100 and y > -100 and y < 100: #midleft
+        t.pu()
+        if 6 not in place:
+            t.goto(-250, -100)
+            drawo()
+            place.append (6)
+
+        else:
+            pass
+    elif x > 100 and x < 300 and y > -250 and y < -100: #bot right
+        t.pu()
+        if 7 not in place:
+            t.goto(150, -300)
+            drawo()
+            place.append (7)
+
+        else:
+            pass
+    elif x > -100 and x < 100 and y > -250 and y < -100: #bot mid
+        t.pu()
+        if 8 not in place:
+            t.goto(-50, -300)
+            drawo()
+            place.append (8)
+
+        else:
+            pass
+    elif x > -300 and x < -100 and y > -250 and y < -100: #bot left
+        t.pu()
+        if 9 not in place:
+            t.goto(-250, -300)
+            drawo()
+            place.append (9)
+
+        else:
+            pass
+
+def playing (x,y) : #switches x and o for each turn
+    global turns
+    if turns == 1 :
+        locationo(x,y)
+        turns=0
+
+    elif turns == 0:
+        turns=1
+        locationx(x,y)
+
+
+window.onscreenclick(playing)
+
+window.mainloop()
