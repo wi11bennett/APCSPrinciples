@@ -60,7 +60,7 @@ def locationx(x,y) : #makes board clickable for the x's
             place.append (1)
 
         else:
-            pass
+            locationx(x,y)
     elif x > -100 and x < 100 and y > 100 and y < 250:#top mid
         t.pu()
         if 2 not in place :
@@ -69,7 +69,7 @@ def locationx(x,y) : #makes board clickable for the x's
             place.append (2)
 
         else:
-            pass
+            locationx(x,y)
     elif x > -300 and x < -100 and y > 100 and y < 250: #top left
         t.pu()
         if 3 not in place :
@@ -78,7 +78,7 @@ def locationx(x,y) : #makes board clickable for the x's
             place.append (3)
 
         else:
-            pass
+            locationx(x,y)
     elif x > 100 and x < 300 and y > -100 and y < 100: #midright
         t.pu()
         if 4 not in place :
@@ -87,7 +87,7 @@ def locationx(x,y) : #makes board clickable for the x's
             place.append (4)
 
         else:
-            pass
+            locationx(x,y)
     elif x > -100 and x < 100 and y > -100 and y < 100: #midmid
         t.pu()
         if 5 not in place :
@@ -96,7 +96,7 @@ def locationx(x,y) : #makes board clickable for the x's
             place.append (5)
 
         else:
-            pass
+            locationx(x,y)
     elif x > -300 and x < -100 and y > -100 and y < 100: #midleft
         t.pu()
         if 6 not in place:
@@ -105,7 +105,7 @@ def locationx(x,y) : #makes board clickable for the x's
             place.append (6)
 
         else:
-            pass
+            locationx(x,y)
     elif x > 100 and x < 300 and y > -250 and y < -100: #bot right
         t.pu()
         if 7 not in place:
@@ -114,7 +114,7 @@ def locationx(x,y) : #makes board clickable for the x's
             place.append (7)
 
         else:
-            pass
+            locationx(x,y)
     elif x > -100 and x < 100 and y > -250 and y < -100: #bot mid
         t.pu()
         if 8 not in place:
@@ -123,7 +123,7 @@ def locationx(x,y) : #makes board clickable for the x's
             place.append (8)
 
         else:
-            pass
+            locationx(x,y)
     elif x > -300 and x < -100 and y > -250 and y < -100: #bot left
         t.pu()
         if 9 not in place :
@@ -132,7 +132,7 @@ def locationx(x,y) : #makes board clickable for the x's
             place.append (9)
 
         else:
-            pass
+            locationx(x,y)
 
 def locationo(x,y) : #makes board clickable for the o's
     if x > 100 and x < 300 and y > 100 and y < 250:#top right
@@ -143,7 +143,7 @@ def locationo(x,y) : #makes board clickable for the o's
             place.append (1)
 
         else:
-            pass
+            locationo(x,y)
     elif x > -100 and x < 100 and y > 100 and y < 250:#top mid
         t.pu()
         if 2 not in place:
@@ -152,7 +152,7 @@ def locationo(x,y) : #makes board clickable for the o's
             place.append (2)
 
         else:
-            pass
+            locationo(x,y)
     elif x > -300 and x < -100 and y > 100 and y < 250: #top left
         t.pu()
         if 3 not in place:
@@ -161,7 +161,7 @@ def locationo(x,y) : #makes board clickable for the o's
             place.append (3)
 
         else:
-            pass
+            locationo(x,y)
     elif x > 100 and x < 300 and y > -100 and y < 100: #midright
         t.pu()
         if 4 not in place:
@@ -170,7 +170,7 @@ def locationo(x,y) : #makes board clickable for the o's
             place.append (4)
 
         else:
-            pass
+            locationo(x,y)
     elif x > -100 and x < 100 and y > -100 and y < 100: #midmid
         t.pu()
         if 5 not in place:
@@ -179,7 +179,7 @@ def locationo(x,y) : #makes board clickable for the o's
             place.append (5)
 
         else:
-            pass
+            locationo(x,y)
     elif x > -300 and x < -100 and y > -100 and y < 100: #midleft
         t.pu()
         if 6 not in place:
@@ -188,7 +188,7 @@ def locationo(x,y) : #makes board clickable for the o's
             place.append (6)
 
         else:
-            pass
+            locationo(x,y)
     elif x > 100 and x < 300 and y > -250 and y < -100: #bot right
         t.pu()
         if 7 not in place:
@@ -197,7 +197,7 @@ def locationo(x,y) : #makes board clickable for the o's
             place.append (7)
 
         else:
-            pass
+            locationo(x,y)
     elif x > -100 and x < 100 and y > -250 and y < -100: #bot mid
         t.pu()
         if 8 not in place:
@@ -206,7 +206,7 @@ def locationo(x,y) : #makes board clickable for the o's
             place.append (8)
 
         else:
-            pass
+            locationo(x,y)
     elif x > -300 and x < -100 and y > -250 and y < -100: #bot left
         t.pu()
         if 9 not in place:
@@ -215,17 +215,20 @@ def locationo(x,y) : #makes board clickable for the o's
             place.append (9)
 
         else:
-            pass
+            locationo(x,y)
 
+moves = []
 def playing (x,y) : #switches x and o for each turn
     global turns
-    if turns == 1 :
-        locationo(x,y)
-        turns=0
-
-    elif turns == 0:
-        turns=1
-        locationx(x,y)
+    if len(moves) < 9:
+        if turns == 1 :
+            locationo(x,y)
+            turns=0
+            moves.append(turns)
+        elif turns == 0:
+            locationx(x,y)
+            turns=1
+            moves.append(turns)
 
 
 window.onscreenclick(playing)
